@@ -22,7 +22,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           <>
             <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
               <img
-                src={`${images[0].imgix_url}?w=800&h=800&fit=crop&auto=format,compress`}
+                src={`${images[0]?.imgix_url}?w=800&h=800&fit=crop&auto=format,compress`}
                 alt={name}
                 width={800}
                 height={800}
