@@ -87,7 +87,7 @@ export default function ReviewSection({ reviews, productName }: ReviewSectionPro
               
               <div className="flex items-center justify-between text-sm text-gray-500">
                 <span>{reviewerName}</span>
-                <span>{new Date(review.created_at || '').toLocaleDateString()}</span>
+                <span>{review.created_at ? new Date(review.created_at).toLocaleDateString() : 'Date not available'}</span>
               </div>
             </div>
           )
