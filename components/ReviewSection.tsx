@@ -43,18 +43,21 @@ export default function ReviewSection({ reviews, productName }: ReviewSectionPro
         </div>
         
         <div className="space-y-2">
-          {[5, 4, 3, 2, 1].map((stars) => (
-            <div key={stars} className="flex items-center gap-2">
-              <span className="text-sm w-6">{stars}</span>
-              <div className="flex-1 bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-yellow-400 h-2 rounded-full"
-                  style={{ width: `${reviews.length > 0 ? (ratingCounts[stars - 1] / reviews.length) * 100 : 0}%` }}
-                />
+          {[5, 4, 3, 2, 1].map((stars) => {
+            const count = ratingCounts[stars - 1] ?? 0
+            return (
+              <div key={stars} className="flex items-center gap-2">
+                <span className="text-sm w-6">{stars}</span>
+                <div className="flex-1 bg-gray-200 rounded-full h-2">
+                  <div 
+                    className="bg-yellow-400 h-2 rounded-full"
+                    style={{ width: `${reviews.length > 0 ? (count / reviews.length) * 100 : 0}%` }}
+                  />
+                </div>
+                <span className="text-sm text-gray-600 w-8">{count}</span>
               </div>
-              <span className="text-sm text-gray-600 w-8">{ratingCounts[stars - 1]}</span>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
       
